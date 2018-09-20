@@ -44,6 +44,11 @@ class RegisterForm extends React.Component {
         props.dispatch(
           userActions.setUser({ role: response.role, loggedIn: true })
         );
+        this.setState(() => ({
+          userName: '',
+          password: '',
+          role: ''
+        }));
         return <Redirect to="/" />;
       })
       .catch(e => console.log(e));

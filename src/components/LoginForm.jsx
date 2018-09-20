@@ -45,6 +45,10 @@ class LoginForm extends React.Component {
         props.dispatch(
           userActions.setUser({ role: response.role, loggedIn: true })
         );
+        this.setState(() => ({
+          userName: '',
+          password: ''
+        }));
         return <Redirect to="/" />;
       })
       .catch(e => console.log(e));
