@@ -56,6 +56,11 @@ const NavBar = props => {
               Log In
             </Button>
           )}
+          {user.loggedIn && (
+            <Typography color="inherit" variant="subheading">
+              Hello, {user.userName}!
+            </Typography>
+          )}
         </Toolbar>
       </AppBar>
     </div>
