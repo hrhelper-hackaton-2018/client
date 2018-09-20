@@ -41,8 +41,12 @@ class RegisterForm extends React.Component {
     ApiAdapter.submitSignup(this.state)
       .then(r => r.body)
       .then(response => {
-        console.log(response);
-      });
+        props.dispatch(
+          userActions.setUser({ role: response.role, loggedIn: true })
+        );
+        return <Redirect to="/" />;
+      })
+      .catch(e => console.log(e));
   };
 
   render() {
