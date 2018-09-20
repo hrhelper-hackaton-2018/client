@@ -4,10 +4,15 @@ const user = autodux({
   slice: 'user',
   initial: {
     role: null,
-    loggedIn: false
+    loggedIn: false,
+    userName: ''
   },
   actions: {
-    setUser: (state, payload) => ({ role: payload.role, loggedIn: true })
+    setUser: (state, payload) => ({
+      role: payload.role,
+      loggedIn: true,
+      userName: payload.userName
+    })
   }
 });
 
