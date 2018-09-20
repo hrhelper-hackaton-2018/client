@@ -1,14 +1,14 @@
 {
-  "name": "blog-client",
+  "name": "HRHelper",
   "version": "1.0.0",
-  "description": "blog platform",
+  "description": "HR Helper",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-server": "webpack-dev-server",
     "build": "webpack",
     "lint": "eslint 'src/**/*.js*'",
-    "precommit": "pretty-quick --staged && npm run lint"
+    "precommit": "pretty-quick --staged"
   },
   "keywords": [
     "react",
@@ -24,8 +24,10 @@
     "@babel/preset-react": "^7.0.0",
     "@material-ui/core": "^3.1.0",
     "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "eslint-config-prettier": "^3.0.1",

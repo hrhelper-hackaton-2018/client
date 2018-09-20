@@ -36,7 +36,7 @@ const NavBar = props => {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.grow}>
-            Blog It
+            HR Helper
           </Typography>
           <Button component={Link} to="/signup" color="inherit">
             Sign Up
