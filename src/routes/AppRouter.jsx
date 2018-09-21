@@ -4,6 +4,8 @@ import HomePage from '../components/HomePage/HomePage';
 import NavBar from '../components/NavBar';
 import SignUpPage from '../components/SignUpPage';
 import LoginPage from '../components/LoginPage';
+import CandidateDashboard from '../components/CandidateDashboard';
+import Dashboard from '../components/Dashboard';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -13,6 +15,7 @@ const AppRouter = () => (
         <Route path="/" render={() => <HomePage />} exact />
         <Route path="/signup" component={SignUpPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/dashboard" component={Dashboard} />
       </Switch>
     </div>
   </BrowserRouter>
