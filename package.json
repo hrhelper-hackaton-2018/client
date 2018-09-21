@@ -39,9 +39,13 @@
     "react-dom": "^16.5.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "react-webcam": "^1.0.4",
+    "react-webcam-capture": "^1.2.1",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0",
+    "videojs": "^1.0.0",
+    "videojs-record": "^2.4.1",
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.8"

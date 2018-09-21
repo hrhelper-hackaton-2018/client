@@ -21,6 +21,12 @@ module.exports = env => {
           changeOrigin: true,
           secure: false,
           pathRewrite: { '^/auth': '' }
+        },
+        '/file/*': {
+          target: 'http://prosto.ai/',
+          changeOrigin: true,
+          secure: false,
+          pathRewrite: { '^/file': '' }
         }
       }
     },
