@@ -36,7 +36,6 @@ const styles = theme => ({
 
 const InfoCard = props => {
   const { classes, title, description, Icon } = props;
-  console.log(Icon);
   return (
     <Card className={classes.card}>
       <CardActionArea>

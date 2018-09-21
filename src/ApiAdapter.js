@@ -1,12 +1,34 @@
-import axios from 'axios';
+import authApi from './network/authApi';
 
-const apiUri = '';
+const submitSignup = ({
+  userName,
+  email,
+  password,
+  repeatedPassword,
+  role
+}) => {
+  console.log('submitting', { userName, password, repeatedPassword, role });
+  return authApi.post('/register', {
+    userName,
+    password,
+    repeatedPassword,
+    role,
+    email
+  });
+};
 
-const submitSignup = ({ userName, password, role }) => {
-  console.log('submitting', { userName, password, role });
-  return axios.post(apiUri, { userName, password, role });
+const me = () => {
+  console.log('submitting me');
+  return authApi.get('/me');
+};
+
+const submitLogin = ({ userName, password }) => {
+  console.log('submitting', { userName, password });
+  return authApi.post('/login', { userName, password });
 };
 
 export default {
-  submitSignup
+  submitSignup,
+  me,
+  submitLogin
 };

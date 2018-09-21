@@ -14,7 +14,15 @@ module.exports = env => {
     },
     devServer: {
       contentBase: path.join(__dirname, 'public'),
-      historyApiFallback: true
+      historyApiFallback: true,
+      proxy: {
+        '/auth/*': {
+          target: 'http://prosto.ai/',
+          changeOrigin: true,
+          secure: false,
+          pathRewrite: { '^/auth': '' }
+        }
+      }
     },
     module: {
       rules: [

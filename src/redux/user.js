@@ -1,17 +1,19 @@
 import autodux from 'autodux';
 
-const user = autodux({
+export const user = autodux({
   slice: 'user',
   initial: {
     role: null,
     loggedIn: false,
-    userName: ''
+    userName: '',
+    email: ''
   },
   actions: {
     setUser: (state, payload) => ({
       role: payload.role,
       loggedIn: true,
-      userName: payload.userName
+      userName: payload.userName,
+      email: payload.email
     })
   }
 });

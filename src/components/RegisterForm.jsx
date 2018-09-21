@@ -7,6 +7,9 @@ import ApiAdapter from '../ApiAdapter';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import roles from '../constants/roles';
+import { userActions, user } from '../redux/user';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -24,7 +27,9 @@ class RegisterForm extends React.Component {
     super(props);
     this.state = {
       userName: '',
+      email: '',
       password: '',
+      repeatedPassword: '',
       role: ''
     };
   }
@@ -39,23 +44,24 @@ class RegisterForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     ApiAdapter.submitSignup(this.state)
-      .then(r => r.body)
+      .then(r => r.data)
       .then(response => {
-        props.dispatch(
-          userActions.setUser({ role: response.role, loggedIn: true })
-        );
+        console.log('register response', response);
+        this.props.dispatch(user.actions.setUser({ ...response }));
         this.setState(() => ({
           userName: '',
           password: '',
-          role: ''
+          role: '',
+          repeatedPassword: '',
+          email: ''
         }));
-        return <Redirect to="/" />;
+        return this.props.history.push('/');
       })
       .catch(e => console.log(e));
   };
 
   render() {
-    const { userName, password } = this.state;
+    const { userName, email, password, repeatedPassword } = this.state;
     const { classes } = this.props;
     return (
       <form className={classes.root} onSubmit={this.handleSubmit}>
@@ -67,9 +73,23 @@ class RegisterForm extends React.Component {
           fullWidth
         />
         <TextField
+          label="Email"
+          value={email}
+          name="email"
+          onChange={this.handleChange}
+          fullWidth
+        />
+        <TextField
           label="Password"
           name="password"
           value={password}
+          onChange={this.handleChange}
+          fullWidth
+        />
+        <TextField
+          label="Password Confirmation"
+          name="repeatedPassword"
+          value={repeatedPassword}
           onChange={this.handleChange}
           fullWidth
         />
@@ -95,4 +115,4 @@ class RegisterForm extends React.Component {
   }
 }
 
-export default withStyles(styles)(RegisterForm);
+export default withRouter(connect(null)(withStyles(styles)(RegisterForm)));

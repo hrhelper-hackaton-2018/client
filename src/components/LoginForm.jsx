@@ -7,8 +7,10 @@ import ApiAdapter from '../ApiAdapter';
 import Button from '@material-ui/core/Button';
 import FormControl from '@material-ui/core/FormControl';
 import roles from '../constants/roles';
-import { userActions } from '../redux/user';
+import { userActions, user } from '../redux/user';
 import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -39,17 +41,16 @@ class LoginForm extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    ApiAdapter.submitSignup(this.state)
-      .then(r => r.body)
+    ApiAdapter.submitLogin(this.state)
+      .then(r => r.data)
       .then(response => {
-        props.dispatch(
-          userActions.setUser({ role: response.role, loggedIn: true })
-        );
+        console.log('login response', response);
+        this.props.dispatch(user.actions.setUser({ ...response }));
         this.setState(() => ({
           userName: '',
           password: ''
         }));
-        return <Redirect to="/" />;
+        return this.props.history.push('/');
       })
       .catch(e => console.log(e));
   };
@@ -83,4 +84,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default withStyles(styles)(LoginForm);
+export default withRouter(connect(null)(withStyles(styles)(LoginForm)));

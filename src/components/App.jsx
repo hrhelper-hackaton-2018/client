@@ -3,12 +3,17 @@ import AppRouter from '../routes/AppRouter';
 import { Provider } from 'react-redux';
 import createStore from '../redux/store';
 import { userActions } from '../redux/user';
+import apiAdapter from '../ApiAdapter';
 
 const store = createStore();
-// const userString = localStorage.getItem('user');
-// if (userString !== '') {
-//   store.dispatch(userActions.setUser(JSON.parse(userString)));
-// }
+
+apiAdapter
+  .me()
+  .then(r => r.data)
+  .then(user => {
+    store.dispatch(userActions.setUser(user));
+  })
+  .catch(e => console.log(e));
 
 const App = () => (
   <div>
