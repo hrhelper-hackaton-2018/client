@@ -13,7 +13,10 @@ module.exports = env => {
       extensions: ['.js', '.jsx']
     },
     devServer: {
-      contentBase: path.join(__dirname, 'public'),
+      contentBase: [
+        path.join(__dirname, 'public'),
+        path.join(__dirname, '..', 'face-recognition')
+      ],
       historyApiFallback: true,
       proxy: {
         '/auth/*': {
@@ -27,6 +30,12 @@ module.exports = env => {
           changeOrigin: true,
           secure: false,
           pathRewrite: { '^/file': '' }
+        },
+        '/video': {
+          target: 'http://prosto.ai/files/get/blob.mp4',
+          changeOrigin: true,
+          secure: false,
+          pathRewrite: { '^/video': '' }
         }
       }
     },

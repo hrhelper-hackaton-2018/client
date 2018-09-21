@@ -67,7 +67,14 @@ class VideoRecorder extends React.Component {
       recording: true
     }));
     captureUserMedia(stream => {
-      this.state.recordVideo = RecordRTC(stream, { type: 'video' });
+      this.state.recordVideo = RecordRTC(stream, {
+        type: 'video',
+        mimeType: 'video/webm',
+        video: {
+          width: 580,
+          height: 350
+        }
+      });
       this.state.recordVideo.startRecording();
     });
   }

@@ -1,3 +1,3 @@
 export default {
-  serverUri: 'http://localhost:8080'
+  serverUri: 'http://localhost:8081'
 };
