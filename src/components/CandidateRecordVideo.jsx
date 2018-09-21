@@ -1,11 +1,11 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import VoiceChat from '@material-ui/icons/VoiceChat';
+import VideoPlayer from './VideoPlayer';
 
 const styles = {
   root: {
@@ -41,20 +41,10 @@ class CandidateDashboard extends React.Component {
       <div className={classes.root}>
         <Paper className={classes.actionBox} square>
           <Typography variant="headline" align="center">
-            Join a call
+            Record your resume
           </Typography>
           <div className={classes.actions}>
-            <TextField
-              color="inherit"
-              helperText="url for a call"
-              className={classes.actions__text}
-            >
-              123
-            </TextField>
-            <Button variant="contained" color="default">
-              <VoiceChat className={classes.iconLeft} />
-              Go
-            </Button>
+            <VideoPlayer />
           </div>
         </Paper>
       </div>
@@ -62,4 +52,4 @@ class CandidateDashboard extends React.Component {
   }
 }
 
-export default withRouter(withStyles(styles)(CandidateDashboard));
+export default withStyles(styles)(CandidateDashboard);
