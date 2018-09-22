@@ -14,6 +14,9 @@ export const user = autodux({
       loggedIn: true,
       userName: payload.userName,
       email: payload.email
+    }),
+    logOut: state => ({
+      loggedIn: false
     })
   }
 });
