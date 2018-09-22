@@ -62,7 +62,11 @@ class CandidateDashboard extends React.Component {
             >
               {text}
             </TextField>
-            <Button variant="contained" color="default">
+            <Button
+              variant="contained"
+              color="default"
+              onClick={this.handleSubmit}
+            >
               <VoiceChat className={classes.iconLeft} />
               Go
             </Button>

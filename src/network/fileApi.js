@@ -3,7 +3,7 @@ import config from '../constants/config';
 
 const myApi = axios.create({
   baseURL: config.serverUri + '/file',
-  timeout: 10000,
+  timeout: 20000,
   withCredentials: true,
   headers: {
     Accept: 'application/json',

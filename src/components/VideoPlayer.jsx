@@ -63,7 +63,7 @@ class VideoPlayer extends React.Component {
 
     this.context.mozImageSmoothingEnabled = true;
 
-    // setInterval(() => this.trackEmotions(this.context2, this.canvas2), 1500);
+    setInterval(() => this.trackEmotions(this.context2, this.canvas2), 1400);
     this.trackFaceOnline('Oleg', 'Stotsky', 22, this.context); //TODO: Pass data from props
     setInterval(
       () => this.drawInfo(this.canvas, this.context, this.smileList),
@@ -153,10 +153,12 @@ class VideoPlayer extends React.Component {
 
   getFaceData = sourceImageUrl => {
     // Replace <Subscription Key> with your valid subscription key.
-    let subscriptionKey = '7427354c80944d18bb98cb53d3e78456';
+    // let subscriptionKey = '7427354c80944d18bb98cb53d3e78456';
+    let subscriptionKey = 'df65060a123a4326a27ca106063b3f8a';
     //console.log(subscriptionKey);
     let uriBase =
-      'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
+      // 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect';
+      'https://southeastasia.api.cognitive.microsoft.com/face/v1.0/detect';
 
     // Request parameters.
     let params = {
