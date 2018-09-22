@@ -8,6 +8,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import { connect } from 'react-redux';
+import { userActions } from '../redux/user';
 
 const styles = {
   root: {
@@ -60,6 +61,14 @@ const NavBar = props => {
             <Typography color="inherit" variant="subheading">
               Hello, {user.userName}!
             </Typography>
+          )}
+          {user.loggedIn && (
+            <Button
+              color="inherit"
+              onClick={() => props.dispatch(userActions.logOut())}
+            >
+              Log out
+            </Button>
           )}
         </Toolbar>
       </AppBar>
