@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import VoiceChat from '@material-ui/icons/VoiceChat';
+import linkState from 'linkstate';
 
 const styles = {
   root: {
@@ -33,10 +34,19 @@ const styles = {
 class CandidateDashboard extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      text: ''
+    };
   }
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.history.push('/uploadvideo');
+  };
 
   render() {
     const { classes } = this.props;
+    const { text } = this.state;
     return (
       <div className={classes.root}>
         <Paper className={classes.actionBox} square>
@@ -48,8 +58,9 @@ class CandidateDashboard extends React.Component {
               color="inherit"
               helperText="url for a call"
               className={classes.actions__text}
+              onChange={linkState(this, 'text')}
             >
-              123
+              {text}
             </TextField>
             <Button variant="contained" color="default">
               <VoiceChat className={classes.iconLeft} />

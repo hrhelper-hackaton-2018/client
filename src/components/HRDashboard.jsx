@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import VoiceChat from '@material-ui/icons/VoiceChat';
 import { FormControl } from '@material-ui/core';
+import { withRouter } from 'react-router-dom';
 
 const styles = {
   root: {
@@ -52,6 +53,7 @@ class ClientDashboard extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    this.props.history.push('/getvideo');
   };
 
   render() {
@@ -86,4 +88,4 @@ class ClientDashboard extends React.Component {
   }
 }
 
-export default withStyles(styles)(ClientDashboard);
+export default withRouter(withStyles(styles)(ClientDashboard));

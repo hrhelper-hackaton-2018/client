@@ -33,6 +33,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint-config-prettier": "^3.0.1",
     "evergreen-ui": "^3.2.7",
+    "linkstate": "^1.1.1",
     "material-ui-icons": "^1.0.0-beta.36",
     "prettier": "^1.14.2",
     "react": "^16.5.1",

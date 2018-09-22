@@ -61,7 +61,7 @@ class VideoPlayer extends React.Component {
     this.trackFaceOnline('Oleg', 'Stotsky', 22, this.context); //TODO: Pass data from props
     setInterval(
       () => this.drawInfo(this.canvas, this.context, this.smileList),
-      1000
+      10000
     );
   }
 
@@ -238,7 +238,7 @@ class VideoPlayer extends React.Component {
         >
           <source
             id="videoSource"
-            src="http://localhost:8081/video"
+            src="http://localhost:8080/video"
             type="video/webm"
           />
         </video>
