@@ -32,7 +32,7 @@ module.exports = env => {
           pathRewrite: { '^/file': '' }
         },
         '/video': {
-          target: 'http://prosto.ai/files/get/blob.mp4',
+          target: 'http://prosto.ai/files/get/blob.webm',
           changeOrigin: true,
           secure: false,
           pathRewrite: { '^/video': '' }

@@ -11,6 +11,10 @@ const styles = {
   },
   canvas: {
     position: 'absolute'
+  },
+  canvas2: {
+    position: 'absolute',
+    zIndex: '-1000'
   }
 };
 
@@ -53,15 +57,17 @@ class VideoPlayer extends React.Component {
     this.video = document.getElementById('video');
     this.videoSource = document.getElementById('videoSource');
     this.canvas = document.getElementById('canvas');
-    this.context = canvas.getContext('2d');
+    this.context = this.canvas.getContext('2d');
+    this.canvas2 = document.getElementById('canvas2');
+    this.context2 = this.canvas2.getContext('2d');
 
     this.context.mozImageSmoothingEnabled = true;
 
-    setInterval(() => this.trackEmotions(this.context, this.canvas), 5000);
+    // setInterval(() => this.trackEmotions(this.context2, this.canvas2), 1500);
     this.trackFaceOnline('Oleg', 'Stotsky', 22, this.context); //TODO: Pass data from props
     setInterval(
       () => this.drawInfo(this.canvas, this.context, this.smileList),
-      10000
+      1000 / 20
     );
   }
 
@@ -229,8 +235,8 @@ class VideoPlayer extends React.Component {
         <video
           className={classes.video}
           id="video"
-          width="600"
-          height="400"
+          width="480"
+          height="360"
           preload="true"
           autoPlay="ture"
           loop="true"
@@ -245,8 +251,14 @@ class VideoPlayer extends React.Component {
         <canvas
           className={classes.canvas}
           id="canvas"
-          width="580"
-          height="350"
+          width="480"
+          height="360"
+        />
+        <canvas
+          className={classes.canvas2}
+          id="canvas2"
+          width="480"
+          height="360"
         />
       </div>
     );
