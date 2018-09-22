@@ -7,6 +7,7 @@ import LoginPage from '../components/LoginPage';
 import CandidateDashboard from '../components/CandidateDashboard';
 import Dashboard from '../components/Dashboard';
 import CandidateRecordVideo from '../components/CandidateRecordVideo';
+import HrVideoPlayer from '../components/HrVideoPlayer';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -17,7 +18,7 @@ const AppRouter = () => (
         <Route path="/signup" component={SignUpPage} />
         <Route path="/login" component={LoginPage} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/dev" component={CandidateRecordVideo} />
+        <Route path="/dev" component={HrVideoPlayer} />
       </Switch>
     </div>
   </BrowserRouter>

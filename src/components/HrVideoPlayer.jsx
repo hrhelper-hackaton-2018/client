@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import VoiceChat from '@material-ui/icons/VoiceChat';
-import VideoRecorder from './VideoRecorder';
+import VideoPlayer from './VideoPlayer';
 
 const styles = {
   root: {
@@ -41,10 +41,10 @@ class CandidateDashboard extends React.Component {
       <div className={classes.root}>
         <Paper className={classes.actionBox} square>
           <Typography variant="headline" align="center">
-            Record your resume
+            Watch the video from candidate
           </Typography>
           <div className={classes.actions}>
-            <VideoRecorder />
+            <VideoPlayer />
           </div>
         </Paper>
       </div>
